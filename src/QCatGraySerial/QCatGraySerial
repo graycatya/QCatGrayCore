@@ -1,0 +1,6 @@
+﻿#include "QCatGraySerialPort.h"
+#include "QCatGrayMonitorSerial.h"
+
+#if Q_CC_MSVC
+#include "QCatGrayWinMonitorSerial.h"
+#endif
