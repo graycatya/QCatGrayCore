@@ -1,17 +1,17 @@
-﻿#pragma once
+﻿#ifndef QCATGRAYLISTMODEL_H
+#define QCATGRAYLISTMODEL_H
 
 #include <QAbstractListModel>
 
-namespace QCatGrayModel {
-
 template <typename T>
-class QCatGrayListModel : public QAbstractListModel {
+class QCatGrayListModel : public QAbstractListModel
+{
 
 public:
     // 声明父类
     using Parent = QAbstractListModel;
 
-    QCatGrayListModel(QObject* parent = nullptr);
+    explicit QCatGrayListModel(QObject* parent = nullptr);
     QCatGrayListModel(const QList<T>& nodeList, QObject* parent = nullptr);
 
     const QList<T>& nodeList() const
@@ -38,4 +38,4 @@ protected:
 
 };
 
-}
+#endif

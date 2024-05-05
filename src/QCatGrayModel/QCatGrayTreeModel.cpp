@@ -5,7 +5,12 @@
 
 #include <QDebug>
 
-namespace QCatGrayModel {
+
+QCatGrayTreeModel::QCatGrayTreeModel(QObject *parent)
+    : Parent(parent)
+{
+
+}
 
 void QCatGrayTreeModel::loadFromJson(const QString &jsonPath, const QString &recursionKey)
 {
@@ -347,4 +352,3 @@ void QCatGrayTreeModel::innerUpdate(int index)
     setNodeValue(index, ModelHasChildrendKey, childrenCount > 0);
 }
 
-}

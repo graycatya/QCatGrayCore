@@ -1,6 +1,5 @@
 ﻿#include "QCatGrayListModel.h"
 
-namespace QCatGrayModel {
 
 template<typename T>
 QCatGrayListModel<T>::QCatGrayListModel(QObject *parent) : Parent(parent)
@@ -117,6 +116,3 @@ Qt::DropActions QCatGrayListModel<T>::supportedDropActions() const
     return Parent::supportedDropActions() | Qt::MoveAction;
 }
 
-
-
-}

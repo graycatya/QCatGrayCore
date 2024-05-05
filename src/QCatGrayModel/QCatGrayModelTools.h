@@ -1,4 +1,6 @@
-﻿#pragma once
+﻿#ifndef QCATGRAYMODELTOOLS_H
+#define QCATGRAYMODELTOOLS_H
+
 
 #include <QDebug>
 #include <QFile>
@@ -517,5 +519,7 @@ public:
 };
 
 }
+
+#endif
 
 

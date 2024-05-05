@@ -1,9 +1,9 @@
-﻿#pragma once
+﻿#ifndef QCATGRAYTREEMODEL_H
+#define QCATGRAYTREEMODEL_H
 
 #include "QCatGrayListModel.h"
 #include <QJsonObject>
 
-namespace QCatGrayModel {
 
 const static QString ModelDepthKey = QStringLiteral("TreeModel_depth");
 const static QString ModelExpendKey = QStringLiteral("TreeModel_expend");
@@ -25,7 +25,7 @@ public:
     // 声明父类
     using Parent = QCatGrayListModel<QJsonObject>;
 
-    QCatGrayTreeModel() {}
+    explicit QCatGrayTreeModel(QObject* parent = nullptr);
     ~QCatGrayTreeModel() {}
     // 从json文件读入数据
     Q_INVOKABLE void loadFromJson(const QString& jsonPath, const QString& recursionKey = ModelRecursionKey);
@@ -94,5 +94,4 @@ private:
     QString m_recursionKey = ModelRecursionKey;
 };
 
-}
-
+#endif
