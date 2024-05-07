@@ -27,7 +27,6 @@ set(3RDPARTY
 )
 
 set(MODULES
-    QCatGrayModel
     QCatGrayNetWork
     QCatGraySerial
     QCatGrayUniversal
