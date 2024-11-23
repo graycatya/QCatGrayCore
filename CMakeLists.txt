@@ -2,9 +2,10 @@ cmake_minimum_required(VERSION 3.9)
 
 project(QCatGrayCore LANGUAGES CXX)
 
-if (UNIX)
+if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+elseif (UNIX)
 add_compile_options(-Wall -fPIC -Wno-stringop-overflow)
-endif(UNIX)
+endif()
 
 message(STATUS "------------------------------------------------------------" )
 message(STATUS "[QCatGrayCore] Configuration summary."                     )
