@@ -24,16 +24,20 @@ message(STATUS "------------------------------------------------------------ ")
 
 
 set(3RDPARTY
-
+    libuv
 )
 
 set(MODULES
     QCatGrayNetWork
     QCatGraySerial
     QCatGrayUniversal
+    QCatGrayLibuv
 )
 
 set(EXAMPLES
+    #udplibuvtest
+    tcpclientlibuvtest
+    LibuvServer
 )
 
 foreach(3rdparty_module ${3RDPARTY})
