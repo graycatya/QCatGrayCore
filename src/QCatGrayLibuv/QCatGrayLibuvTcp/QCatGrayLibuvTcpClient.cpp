@@ -119,6 +119,8 @@ void QCatGrayLibuvTcpClient::CloseSocket()
         qDebug() << "close this: " << this;
         QMetaObject::invokeMethod(this,
                                   "CloseSocketed");
+        QMutexLocker locker(&m_CloseMutex);
+        m_CloseCondition.wait(&m_CloseMutex);
     }
 }
 
@@ -209,6 +211,8 @@ void QCatGrayLibuvTcpClient::Close_Cb(uv_handle_t *handle)
             m_pTcpSocketToTcpClient[(uv_tcp_t*)handle]->m_Tcp_write.clear();
         }
         m_pTcpSocketToTcpClient[(uv_tcp_t*)handle]->m_isConnect = false;
+        QMutexLocker locker(&m_pTcpSocketToTcpClient[(uv_tcp_t*)handle]->m_CloseMutex);
+        m_pTcpSocketToTcpClient[(uv_tcp_t*)handle]->m_CloseCondition.wakeAll();
         emit m_pTcpSocketToTcpClient[(uv_tcp_t*)handle]->Closeed();
         m_pTcpSocketToTcpClient.remove((uv_tcp_t*)handle);
 

@@ -6,6 +6,8 @@
 #include <QAbstractSocket>
 #include <QThread>
 #include <QHash>
+#include <QMutex>
+#include <QWaitCondition>
 #include <uv.h>
 
 class QCatGrayLibuvTcpClient : public QObject
@@ -56,6 +58,8 @@ private:
     QThread *m_Thread;
     static QHash<uv_tcp_t*, QCatGrayLibuvTcpClient*> m_pTcpSocketToTcpClient;
     bool m_isConnect;
+    QMutex m_CloseMutex;
+    QWaitCondition m_CloseCondition;
 
 };
 
