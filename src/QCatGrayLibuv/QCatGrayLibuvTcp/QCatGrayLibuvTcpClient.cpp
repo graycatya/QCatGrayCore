@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <memory>
+#include <QDebug>
 
 #include <QHostAddress>
 #include <QDataStream>

@@ -36,8 +36,8 @@ set(MODULES
 
 set(EXAMPLES
     #udplibuvtest
-    tcpclientlibuvtest
-    LibuvServer
+    #tcpclientlibuvtest
+    #LibuvServer
 )
 
 foreach(3rdparty_module ${3RDPARTY})

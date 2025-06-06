@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QAtomicInteger>
 #include <QAbstractSocket>
+#include <QSharedPointer>
 #include <QThread>
 #include <QHash>
 #include <QMutex>
